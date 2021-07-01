@@ -29,6 +29,12 @@
     <canvas id="MeinCanvas"></canvas>
     <button onclick="reset()">reset</button>
     <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('./service-worker.js');
+                console.log("Service Worker registered");	  
+            });
+        }
         document.body.style.overflow = 'hidden';
 
         //Als globale Variablen deklariert um mit allen Functions darauf zugreifen zu können
